@@ -1,0 +1,27 @@
+#spring:
+#  application:
+#    name: employeedemonewone
+#  # profiles:
+#  #   active: prod
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/employee123?createDatabaseIfNotExist=true
+#    username: root
+#    password: 12345
+#  # server:
+#  #   port: 8082
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+#
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: '*'
+#
+#springdoc:
+#  api-docs:
+#    path: /v3/api-docs
+#  swagger-ui:
+#    path: /swagger-ui.html
