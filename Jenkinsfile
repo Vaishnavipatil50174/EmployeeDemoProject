@@ -1,5 +1,5 @@
 pipeline {
-    agent any  // Run on any available Jenkins agent
+    agent any
 
     tools {
         maven 'Maven3'  // Use configured Maven installation
@@ -7,13 +7,13 @@ pipeline {
     }
 
     environment {
-        MVN_CMD = "mvn"  // Define Maven command variable
+        MVN_CMD = "mvn"
     }
 
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/Vaishnavipatil50174/EmployeeDemoProject'
+                git branch: 'main', url: 'https://github.com/Vaishnavipatil50174/EmployeeDemoProject.git'
             }
         }
 
