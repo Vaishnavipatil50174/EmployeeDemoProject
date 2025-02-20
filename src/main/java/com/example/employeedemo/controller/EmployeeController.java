@@ -64,6 +64,7 @@ public class EmployeeController {
 
     @PutMapping("/emp/{id}")
     public Employee update(@PathVariable Integer id,@RequestBody Employee employee){
+        System.out.println("Added");
         return employeeService.update(id, employee);
     }
     @DeleteMapping("{id}")
