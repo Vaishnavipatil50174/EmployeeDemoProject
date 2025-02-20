@@ -19,19 +19,19 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh "${MVN_CMD} clean compile"
+                bat "${MVN_CMD} clean compile"
             }
         }
 
         stage('Test') {
             steps {
-                sh "${MVN_CMD} test"
+                bat "${MVN_CMD} test"
             }
         }
 
         stage('Package') {
             steps {
-                sh "${MVN_CMD} package -DskipTests"
+                bat "${MVN_CMD} package -DskipTests"
                 archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
             }
         }
