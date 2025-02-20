@@ -2,7 +2,7 @@ pipeline {
     agent any  // Run on any available Jenkins agent
 
     tools {
-        maven 'Maven'  // Use configured Maven installation
+        maven 'Maven3'  // Use configured Maven installation
         jdk 'JDK17'     // Use configured JDK installation
     }
 
