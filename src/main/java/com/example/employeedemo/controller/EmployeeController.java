@@ -7,9 +7,12 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.Value;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
@@ -24,35 +27,10 @@ import java.util.List;
 @Tag(name = "Employess", description = "Operations related to employee management")
 public class EmployeeController {
 
+    //private static final  Logger log= (Logger) LoggerFactory.getLogger(EmployeeController.class);
+    private static final Logger log = LoggerFactory.getLogger(EmployeeController.class);
     @Autowired
     EmployeeService employeeService;
-
-
-//    @PostMapping("/file")
-//    public String uploadFile(@RequestParam("file") MultipartFile file) {
-//        // Check if the file is empty
-//        if (file.isEmpty()) {
-//            return "No file selected to upload!";
-//        }
-//
-//        try {
-//            // Define the file path to save the uploaded file
-//            String filePath = System.getProperty("C:\\Users\\vaishnaviravindra_pa\\Documents\\Movie.txt") + "/uploads/" + file.getOriginalFilename();
-//            File dest = new File("C:\\Users\\vaishnaviravindra_pa\\Desktop\\DSA");
-//
-//            // Create the directory if it doesn't exist
-//            dest.getParentFile().mkdirs();
-//
-//            // Transfer the file to the destination
-//            file.transferTo(dest);
-//
-//            return "File uploaded successfully: " + filePath;
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            return "File upload failed: " + e.getMessage();
-//        }
-//    }
-
 
     @GetMapping("/uni")
     public String rel(HttpServletRequest httpServletRequest){
@@ -61,10 +39,11 @@ public class EmployeeController {
         return "ID IS" +id + "Name is"+name;
     }
 
-
     @GetMapping("/employee")
     public Iterable<Employee>display(){
+        log.error("Fetching User Details");
         return employeeService.showAll();
+
     }
 
     @Operation(summary = "Find employee by ID", description = "Provide an ID to look up specific employees details")

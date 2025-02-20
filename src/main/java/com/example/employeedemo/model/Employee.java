@@ -1,20 +1,28 @@
 package com.example.employeedemo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.springframework.context.annotation.Scope;
 import org.springframework.web.context.WebApplicationContext;
+import jakarta.validation.Validation;
+import jakarta.validation.Validator;
+import jakarta.validation.ValidatorFactory;
+import jakarta.validation.ConstraintViolation;
+
+import java.io.Serializable;
 
 @Data
 @Entity
 @ToString
 //@AllArgsConstructor
-public class Employee {
+
+@Table(name = "employee",indexes = {
+        @Index(name = "idx_emp_name", columnList = "name")
+})
+public class Employee implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer id;
