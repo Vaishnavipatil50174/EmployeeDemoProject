@@ -2,7 +2,7 @@ pipeline {
     agent any  // Run on any available Jenkins agent
 
     tools {
-        maven 'Maven3'  // Use configured Maven installation
+        maven 'Maven'  // Use configured Maven installation
         jdk 'JDK17'     // Use configured JDK installation
     }
 
@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/user/spring-boot-app.git'
+                git branch: 'main', url: 'https://github.com/Vaishnavipatil50174/EmployeeDemoProject'
             }
         }
 
